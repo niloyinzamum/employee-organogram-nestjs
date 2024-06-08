@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
 
 @Entity()
-export class Employee {
+export class Employees {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -14,9 +14,9 @@ export class Employee {
   @Column()
   positionName: string;
 
-  @ManyToOne(() => Employee, employee => employee.children)
-  parent: Employee;
+  @ManyToOne(() => Employees, employee => employee.children)
+  parent: Employees;
 
-  @OneToMany(() => Employee, employee => employee.parent)
-  children: Employee[];
+  @OneToMany(() => Employees,employee => employee.parent)
+  children: Employees[];
 }
